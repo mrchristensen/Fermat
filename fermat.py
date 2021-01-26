@@ -13,14 +13,14 @@ def mod_exp(x, y, N):  # Algorithm from Figure 1.4
 
     z = mod_exp(x, y // 2, N)  # Time Complexity: division = O(n^2)
     if y % 2 == 0:  # If y is even
-        return (z ** 2) % N  #
+        return (z ** 2) % N  # Time Complexity: power = O(z(n^20) = O(n^2)
     else:  # If y is odd
-        return (x * (z ** 2)) % N  # Time Complexity: mult and exp = O(n^2 + n^2) = O(n^2)
+        return (x * (z ** 2)) % N  # Time Complexity: mult and exp = O(n^2 + z(n^2)) = O(n^2)
 
 
 # Time Complexity: Divide and power = O(n^2 + (k)n^2) = O(n^2)
 # Space Complexity: O(1)
-def fprobability(k):  # From pg todo
+def fprobability(k):  # From pg 28
     return 1 - (1 / 2) ** k
 
 
@@ -31,7 +31,7 @@ def mprobability(k):  # From pg 28
 
 
 # Time Complexity: O(k(n^3)) = O(n^3)
-# Space Complexity: O(k(n^2))
+# Space Complexity: O(k(n^2)) = O(n^2)
 def fermat(N, k):  # Algorithm from Figure 1.8 (pg 27)
     if N == 1:
         return "composite"
@@ -47,7 +47,7 @@ def fermat(N, k):  # Algorithm from Figure 1.8 (pg 27)
 
 # Time Complexity: O(k(n^3 + log(exp)(n^3 + n^2))) = O(n^3 + log(exp)(n^3)) = O(log(exp)n^3)
 # Space Complexity: O(k(n^2 + log(exp)n^2)) = O(log(exp)n^2)
-def miller_rabin(N, k):
+def miller_rabin(N, k):  # From pg 28
     if N == 1:
         return "composite"
     if N == 2:
